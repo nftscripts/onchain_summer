@@ -1,5 +1,6 @@
 from asyncio import sleep
 
+import pyuseragents
 from web3.contract import Contract
 from aiohttp import ClientSession
 from web3.types import TxParams
@@ -40,6 +41,7 @@ class BuildathonNFT(ABCOnchainSummer):
             'quantity': '1',
             'takerAddress': self.wallet_address,
         }
+        headers.update({'user-agent': pyuseragents.random()})
         async with ClientSession(headers=headers) as session:
             response = await session.post(
                 url='https://api.wallet.coinbase.com/rpc/v3/creators/mintToken',

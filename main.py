@@ -1,4 +1,6 @@
 import random
+import logging
+
 from typing import Awaitable
 
 from asyncio import (
@@ -19,6 +21,8 @@ from src.utils.data.helper import (
     active_module,
     proxies,
 )
+
+logging.getLogger("asyncio").setLevel(logging.CRITICAL)
 
 
 async def process_pattern(private_key: str, pattern: str, proxy: Proxy | None) -> None:
