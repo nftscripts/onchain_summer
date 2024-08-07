@@ -1,3 +1,4 @@
+from asyncio import wait_for, TimeoutError
 from loguru import logger
 
 from src.modules.nft.eth_etf.eth_etf_mint import EthEtfNFT
@@ -33,7 +34,13 @@ def create_process_function(NFTClass, method_name='mint'):
             proxy=proxy
         )
         logger.debug(nft_instance)
-        await getattr(nft_instance, method_name)()
+        try:
+            await wait_for(
+                fut=getattr(nft_instance, method_name)(),
+                timeout=600
+            )
+        except TimeoutError:
+            logger.error(f'{nft_instance} timed out')
 
     return process
 
