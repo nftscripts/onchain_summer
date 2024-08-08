@@ -33,6 +33,6 @@ class TreasureChestNFT(ABCOnchainSummer):
             'value': 0,
             'nonce': await self.web3.eth.get_transaction_count(self.wallet_address),
             'from': self.wallet_address,
-            'gas': await self.web3.eth.gas_price
+            'gasPrice': await self.web3.eth.gas_price
         })
         return tx

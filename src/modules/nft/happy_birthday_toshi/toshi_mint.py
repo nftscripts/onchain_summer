@@ -37,6 +37,6 @@ class ToshiNFT(ABCOnchainSummer):
             'value': int(0.0001 * 10 ** 18),
             'nonce': await self.web3.eth.get_transaction_count(self.wallet_address),
             'from': self.wallet_address,
-            'gas': int(await self.web3.eth.gas_price)
+            'gasPrice': await self.web3.eth.gas_price
         })
         return tx
