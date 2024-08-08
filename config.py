@@ -9,7 +9,7 @@ PAUSE_BETWEEN_WALLETS = [20, 30]
 basketball_nft = False  # 2000 points | https://wallet.coinbase.com/summer/play?&challenge_id=6mpsE4jgRI0GnuU3elo2XV
 mister_miggles_nft = False  # 1000 points | https://wallet.coinbase.com/summer/play?&challenge_id=ocsChallenge_d0778cee-ad0b-46b9-93d9-887b917b2a1f
 team_liquid_premiere_series = False  # 500 points | https://wallet.coinbase.com/summer/play?&challenge_id=6VRBNN6qr2algysZeorek8
-treasure_chest_mint = False  # 500 points | https://wallet.coinbase.com/summer/play?&challenge_id=ocsChallenge_14c35bdd-3a9f-4b31-af73-d7438696e91c
+# NO LONGER RELEVANT | treasure_chest_mint = False  # 500 points | https://wallet.coinbase.com/summer/play?&challenge_id=ocsChallenge_14c35bdd-3a9f-4b31-af73-d7438696e91c
 celebrating_the_ethereum_etf = False  # 250 points | https://wallet.coinbase.com/summer/play?&challenge_id=5e383RWcRtGAwGUorkGiYC
 happy_birthday_toshi = False  # 250 points | https://wallet.coinbase.com/summer/play?&challenge_id=1pjoNf5onjgsi7r9fWp3ob
 eurc_x_base_launch = False  # 150 points | https://wallet.coinbase.com/summer/play?&challenge_id=1iZiHPbqaIGW5F08bCit6J
