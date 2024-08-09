@@ -20,6 +20,11 @@ class Wheel(Account):
         return f'{self.__class__.__name__} | [{self.wallet_address}]'
 
     async def spin_the_wheel(self) -> None:
+        has_available_spin = await self.check_if_allowed()
+        if not has_available_spin:
+            logger.warning(f"You don't have available spin yet | [{self.wallet_address}]")
+            return
+
         json_data = {
             'gameId': '2',
             'userAddress': self.wallet_address,
@@ -41,6 +46,22 @@ class Wheel(Account):
                 logger.error(f'Wait for cooldown | [{self.wallet_address}]')
         await sleep(5)
         await self.get_state()
+
+    async def check_if_allowed(self) -> bool | None:
+        params = {
+            'gameId': '2',
+            'userAddress': self.wallet_address,
+        }
+        async with ClientSession(headers=headers) as session:
+            response = await session.get(
+                url='https://basehunt.xyz/api/spin-the-wheel',
+                params=params,
+                proxy=self.proxy.proxy_url if self.proxy else None
+            )
+            if response.status == 200:
+                response_text = await response.json()
+                has_available_spin = response_text['spinData']['hasAvailableSpin']
+                return has_available_spin
 
     async def get_state(self) -> None:
         params = {
