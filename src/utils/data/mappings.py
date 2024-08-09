@@ -5,6 +5,7 @@ module_handlers = {
     'mister_miggles_nft': process_mister_miggles_mint,
     'celebrating_the_ethereum_etf': process_eth_etf_mint,
     'happy_birthday_toshi': process_toshi_mint,
+    'happy_nouniversary': process_happy_nouniversary_mint,
     'eurc_x_base_launch': process_eurc_mint,
     'treasure_chest_mint': process_treasure_mint,
     'team_liquid_premiere_series': process_liquid_mint,

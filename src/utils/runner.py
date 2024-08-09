@@ -5,6 +5,7 @@ from src.modules.nft.eth_etf.eth_etf_mint import EthEtfNFT
 from src.modules.nft.basketball.basketball_mint import BasketballNFT
 from src.modules.nft.happy_birthday_toshi.toshi_mint import ToshiNFT
 from src.modules.nft.eth_cant_be_stopped.eth_cant_be_stopped_nft import ETHCantBeStoppedNFT
+from src.modules.nft.happy_nouniversary.happy_nouniversary_mint import HappyNouniversaryNFT
 from src.modules.nft.treasure_chest.treasure_chest_mint import TreasureChestNFT
 from src.modules.nft.mister_miggles.miggles_mint import MisterMigglesNFT
 from src.modules.nft.builathon.buildathon_nft import BuildathonNFT
@@ -54,6 +55,8 @@ process_treasure_mint = create_process_function(TreasureChestNFT)
 process_liquid_mint = create_process_function(LiquidNFT)
 process_eth_cant_be_stopped_mint = create_process_function(ETHCantBeStoppedNFT)
 process_buildathon_mint = create_process_function(BuildathonNFT)
+process_happy_nouniversary_mint = create_process_function(HappyNouniversaryNFT)
+
 
 process_stand_with_crypto_badge = create_process_function(StandWithCryptoBadge, 'claim_badge')
 process_coinbase_one_badge = create_process_function(CoinbaseOneBadge, 'claim_badge')

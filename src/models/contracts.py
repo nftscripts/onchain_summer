@@ -58,3 +58,9 @@ class ETHCantBeStoppedData:
 class BuildathonData:
     address: str = '0x1aeD60A97192157fDA7fb26267A439d523d09c5e'
     abi: str = open('./assets/abi/miggles.json', 'r').read()
+
+
+@dataclass
+class HappyNouniversaryData:
+    address: str = '0xE0fE6DD851187c62a79D00a211953Fe3B5Cec7FE'
+    abi: str = open('./assets/abi/eth_etf.json', 'r').read()
