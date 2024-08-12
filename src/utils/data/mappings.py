@@ -10,6 +10,7 @@ module_handlers = {
     'treasure_chest_mint': process_treasure_mint,
     'team_liquid_premiere_series': process_liquid_mint,
     'eth_cant_be_stopped': process_eth_cant_be_stopped_mint,
+    'pool_together': process_pool_together_mint,
     'buildathon': process_buildathon_mint,
     'stand_with_crypto_badge': process_stand_with_crypto_badge,
     'coinbase_one_badge': process_coinbase_one_badge,

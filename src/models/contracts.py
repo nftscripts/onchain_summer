@@ -64,3 +64,9 @@ class BuildathonData:
 class HappyNouniversaryData:
     address: str = '0xE0fE6DD851187c62a79D00a211953Fe3B5Cec7FE'
     abi: str = open('./assets/abi/eth_etf.json', 'r').read()
+
+
+@dataclass
+class PoolTogetherData:
+    address: str = '0x0d7D21Ae700D0e3d9f320A26b4fF23F314F6d8C8'
+    abi: str = open('./assets/abi/pool_together.json', 'r').read()

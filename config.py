@@ -15,6 +15,7 @@ happy_birthday_toshi = False  # 250 points | https://wallet.coinbase.com/summer/
 happy_nouniversary = True  # 250 points | https://wallet.coinbase.com/nft/mint/eip155:8453:erc721:0xE0fE6DD851187c62a79D00a211953Fe3B5Cec7FE?challengeId=44wp1P8LSnwkPSz7Ft3q78
 eurc_x_base_launch = False  # 150 points | https://wallet.coinbase.com/summer/play?&challenge_id=1iZiHPbqaIGW5F08bCit6J
 eth_cant_be_stopped = False  # 150 points | https://wallet.coinbase.com/summer/play?&challenge_id=ocsChallenge_c1de2373-35ad-4f3c-ab18-4dfadf15754d
+pool_together = False  # 200 points | https://wallet.coinbase.com/summer/play?&challenge_id=ocsChallenge_2f2ea707-d664-4d4b-918b-6299bdf45cd8
 
 buildathon = False  # For badge | https://wallet.coinbase.com/nft/mint/buildathon
 
