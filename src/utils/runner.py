@@ -71,4 +71,4 @@ process_50tx_badge = create_process_function(TX50Badge, 'claim_badge')
 process_100tx_badge = create_process_function(TX100Badge, 'claim_badge')
 process_1000tx_badge = create_process_function(TX1000Badge, 'claim_badge')
 
-process_wheel = create_process_function(Wheel, 'spin_the_wheel')
+process_wheel = create_process_function(Wheel, 'run_wallet')
