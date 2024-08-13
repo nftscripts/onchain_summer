@@ -44,8 +44,8 @@ class TreasureChestData:
 
 @dataclass
 class LiquidData:
-    address: str = '0x1aeD60A97192157fDA7fb26267A439d523d09c5e'
-    abi: str = open('./assets/abi/miggles.json', 'r').read()
+    address: str = '0x1b9Ac8580d2E81d7322f163362831448E7FcAD1B'
+    abi: str = open('./assets/abi/mint_fun.json', 'r').read()
 
 
 @dataclass

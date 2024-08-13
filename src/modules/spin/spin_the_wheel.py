@@ -55,7 +55,32 @@ class Wheel(Account):
             logger.error(f"Failed to get data: {e}")
             return
 
+    async def check_level(self) -> int:
+        params = {
+            'userAddress': self.wallet_address,
+            'gameId': '2',
+        }
+        async with ClientSession(headers=headers) as session:
+            response = await session.get(
+                url='https://basehunt.xyz/api/profile/state',
+                params=params,
+                proxy=self.proxy.proxy_url if self.proxy else None
+            )
+            if response.status == 200:
+                response_json = await response.json()
+                if response_json['isOptedIn'] is False:
+                    return 0
+                level = int(response_json['levelData']['level'])
+                return level
+
     async def run_wallet(self) -> None:
+        level = await self.check_level()
+        if level is None:
+            return
+        if level < 1:
+            logger.error(f'Your must have at least level 1 to spin the wheel. | [{self.wallet_address}]')
+            return
+
         try:
             has_available_spin, _, _ = await self.get_data()
         except TypeError:
