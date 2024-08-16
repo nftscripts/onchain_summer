@@ -4,10 +4,11 @@ ROTATE_IP = False
 BASE_RPC = ''
 
 PAUSE_BETWEEN_MINTS = [20, 30]
-PAUSE_BETWEEN_WALLETS = [20, 30]
+PAUSE_BETWEEN_WALLETS = [25, 40]
 
 # NO LONGER RELEVANT basketball_nft = False  # 2000 points | https://wallet.coinbase.com/summer/play?&challenge_id=6mpsE4jgRI0GnuU3elo2XV
 mister_miggles_nft = False  # 1000 points | https://wallet.coinbase.com/summer/play?&challenge_id=ocsChallenge_d0778cee-ad0b-46b9-93d9-887b917b2a1f
+stix_launch_tournament_pass = True  # 1000 points | https://wallet.coinbase.com/nft/mint/stix?challengeId=ocsChallenge_bd5208b5-ff1e-4f5b-8522-c4d4ebb795b7
 team_liquid_premiere_series = False  # 500 points | https://wallet.coinbase.com/summer/play?&challenge_id=6VRBNN6qr2algysZeorek8
 # NO LONGER RELEVANT | treasure_chest_mint = False  # 500 points | https://wallet.coinbase.com/summer/play?&challenge_id=ocsChallenge_14c35bdd-3a9f-4b31-af73-d7438696e91c
 celebrating_the_ethereum_etf = False  # 250 points | https://wallet.coinbase.com/summer/play?&challenge_id=5e383RWcRtGAwGUorkGiYC

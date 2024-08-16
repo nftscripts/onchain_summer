@@ -9,6 +9,7 @@ module_handlers = {
     'eurc_x_base_launch': process_eurc_mint,
     'treasure_chest_mint': process_treasure_mint,
     'team_liquid_premiere_series': process_liquid_mint,
+    'stix_launch_tournament_pass': process_stix_launch_mint,
     'eth_cant_be_stopped': process_eth_cant_be_stopped_mint,
     'pool_together': process_pool_together_mint,
     'buildathon': process_buildathon_mint,

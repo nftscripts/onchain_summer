@@ -70,3 +70,9 @@ class HappyNouniversaryData:
 class PoolTogetherData:
     address: str = '0x0d7D21Ae700D0e3d9f320A26b4fF23F314F6d8C8'
     abi: str = open('./assets/abi/pool_together.json', 'r').read()
+
+
+@dataclass
+class StixLaunchData:
+    address: str = '0xa7891c87933BB99Db006b60D8Cb7cf68141B492f'
+    abi: str = open('./assets/abi/mint_fun.json', 'r').read()
