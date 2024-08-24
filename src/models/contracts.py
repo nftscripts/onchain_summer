@@ -76,3 +76,27 @@ class PoolTogetherData:
 class StixLaunchData:
     address: str = '0xa7891c87933BB99Db006b60D8Cb7cf68141B492f'
     abi: str = open('./assets/abi/mint_fun.json', 'r').read()
+
+
+@dataclass
+class TheWorldAfterEthEtfApprovalData:
+    address: str = '0x955FdFdFd783C89Beb54c85f0a97F0904D85B86C'
+    abi: str = open('./assets/abi/eth_etf.json', 'r').read()
+
+
+@dataclass
+class ETFEREUMData:
+    address: str = '0xE8aD8b2c5Ec79d4735026f95Ba7C10DCB0D3732B'
+    abi: str = open('./assets/abi/eth_etf.json', 'r').read()
+
+
+@dataclass
+class EthereumETFData:
+    address: str = '0xC00F7096357f09d9f5FE335CFD15065326229F66'
+    abi: str = open('./assets/abi/eth_etf.json', 'r').read()
+
+
+@dataclass
+class IntroducingCoinbaseWalletWebAppData:
+    address: str = '0x6B033e8199ce2E924813568B716378aA440F4C67'
+    abi: str = open('./assets/abi/mint_fun.json', 'r').read()

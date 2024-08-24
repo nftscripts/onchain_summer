@@ -1,13 +1,11 @@
 from src.utils.runner import *
 
 module_handlers = {
-    'basketball_nft': process_basketball_mint,
     'mister_miggles_nft': process_mister_miggles_mint,
     'celebrating_the_ethereum_etf': process_eth_etf_mint,
     'happy_birthday_toshi': process_toshi_mint,
     'happy_nouniversary': process_happy_nouniversary_mint,
     'eurc_x_base_launch': process_eurc_mint,
-    'treasure_chest_mint': process_treasure_mint,
     'team_liquid_premiere_series': process_liquid_mint,
     'stix_launch_tournament_pass': process_stix_launch_mint,
     'eth_cant_be_stopped': process_eth_cant_be_stopped_mint,
@@ -23,5 +21,9 @@ module_handlers = {
     'based_50_txs': process_50tx_badge,
     'based_100_txs': process_100tx_badge,
     'based_1000_txs': process_1000tx_badge,
-    'spin_the_wheel': process_wheel
+    'spin_the_wheel': process_wheel,
+    'the_world_after_eth_etf_approval': process_world_after_etf_approval_mint,
+    'ETFEREUM': process_etfereum_mint,
+    'ethereum_etf': process_ethereum_etf_mint,
+    'introducing_coinbase_wallet_web_app': process_coinbase_wallet_web_app_mint
 }

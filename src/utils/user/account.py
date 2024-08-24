@@ -1,4 +1,5 @@
-from time import time, sleep
+from time import time
+from asyncio import sleep
 
 from web3.exceptions import TransactionNotFound
 from web3.types import TxParams
@@ -67,7 +68,7 @@ class Account(Utils):
                     logger.success(f"Transaction confirmed!")
                     return True
                 elif status is None:
-                    sleep(0.3)
+                    await sleep(0.3)
                 else:
                     logger.error(f"Transaction failed!")
                     return False
@@ -75,4 +76,4 @@ class Account(Utils):
                 if time() - start_time > max_wait_time:
                     print(f'FAILED TX: {hash}')
                     return False
-                sleep(1)
+                await sleep(1)

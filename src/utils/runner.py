@@ -1,21 +1,25 @@
 from asyncio import wait_for, TimeoutError
 from loguru import logger
 
-from src.modules.nft.eth_etf.eth_etf_mint import EthEtfNFT
-from src.modules.nft.basketball.basketball_mint import BasketballNFT
-from src.modules.nft.happy_birthday_toshi.toshi_mint import ToshiNFT
-from src.modules.nft.eth_cant_be_stopped.eth_cant_be_stopped_nft import ETHCantBeStoppedNFT
-from src.modules.nft.happy_nouniversary.happy_nouniversary_mint import HappyNouniversaryNFT
-from src.modules.nft.treasure_chest.treasure_chest_mint import TreasureChestNFT
-from src.modules.nft.pool_together.pool_together_mint import PoolTogetherNFT
-from src.modules.nft.mister_miggles.miggles_mint import MisterMigglesNFT
-from src.modules.nft.builathon.buildathon_nft import BuildathonNFT
-from src.modules.nft.stix_launch.stix_launch_mint import StixLaunchNFT
-from src.modules.nft.liquid.liquid_mint import LiquidNFT
-from src.modules.nft.eurc.eurc_mint import EurcNFT
 from src.modules.spin.spin_the_wheel import Wheel
 from src.utils.proxy_manager import Proxy
 
+from src.modules.nft.nft_factory import (
+    IntroducingCoinbaseWalletWebApp,
+    MisterMigglesNFT,
+    EthEtfNFT,
+    TheWorldAfterEthEtfApproval,
+    ETHCantBeStoppedNFT,
+    EthereumETF,
+    ToshiNFT,
+    EurcNFT,
+    LiquidNFT,
+    BuildathonNFT,
+    ETFEREUM,
+    HappyNouniversaryNFT,
+    PoolTogetherNFT,
+    StixLaunchNFT
+)
 from src.modules.badges.badge_factory import (
     StandWithCryptoBadge,
     CoinbaseOneBadge,
@@ -48,12 +52,14 @@ def create_process_function(NFTClass, method_name='mint'):
     return process
 
 
-process_basketball_mint = create_process_function(BasketballNFT)
+process_coinbase_wallet_web_app_mint = create_process_function(IntroducingCoinbaseWalletWebApp)
+process_ethereum_etf_mint = create_process_function(EthereumETF)
+process_etfereum_mint = create_process_function(ETFEREUM)
+process_world_after_etf_approval_mint = create_process_function(TheWorldAfterEthEtfApproval)
 process_mister_miggles_mint = create_process_function(MisterMigglesNFT)
 process_eth_etf_mint = create_process_function(EthEtfNFT)
 process_toshi_mint = create_process_function(ToshiNFT)
 process_eurc_mint = create_process_function(EurcNFT)
-process_treasure_mint = create_process_function(TreasureChestNFT)
 process_liquid_mint = create_process_function(LiquidNFT)
 process_eth_cant_be_stopped_mint = create_process_function(ETHCantBeStoppedNFT)
 process_buildathon_mint = create_process_function(BuildathonNFT)
@@ -72,4 +78,4 @@ process_50tx_badge = create_process_function(TX50Badge, 'claim_badge')
 process_100tx_badge = create_process_function(TX100Badge, 'claim_badge')
 process_1000tx_badge = create_process_function(TX1000Badge, 'claim_badge')
 
-process_wheel = create_process_function(Wheel, 'run_wallet')
+process_wheel = create_process_function(Wheel, 'spin_the_wheel')
