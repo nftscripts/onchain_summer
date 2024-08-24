@@ -3,6 +3,8 @@ from loguru import logger
 
 from src.modules.spin.spin_the_wheel import Wheel
 from src.utils.proxy_manager import Proxy
+from src.modules.ocs.ocs_client import OCSClient
+from config import referral_code
 
 from src.modules.nft.nft_factory import (
     IntroducingCoinbaseWalletWebApp,
@@ -79,3 +81,11 @@ process_100tx_badge = create_process_function(TX100Badge, 'claim_badge')
 process_1000tx_badge = create_process_function(TX1000Badge, 'claim_badge')
 
 process_wheel = create_process_function(Wheel, 'spin_the_wheel')
+
+
+async def process_register(private_key: str, proxy: Proxy | None) -> None:
+    ocs_client = OCSClient(
+        private_key=private_key,
+        proxy=proxy
+    )
+    await ocs_client.register(referral_code=referral_code)

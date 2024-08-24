@@ -6,6 +6,9 @@ BASE_RPC = ''
 PAUSE_BETWEEN_MINTS = [20, 30]
 PAUSE_BETWEEN_WALLETS = [25, 40]
 
+register = False
+referral_code = None  # str | None
+
 mister_miggles_nft = False  # 1000 points | https://wallet.coinbase.com/summer/play?&challenge_id=ocsChallenge_d0778cee-ad0b-46b9-93d9-887b917b2a1f
 stix_launch_tournament_pass = False  # 1000 points | https://wallet.coinbase.com/nft/mint/stix?challengeId=ocsChallenge_bd5208b5-ff1e-4f5b-8522-c4d4ebb795b7
 team_liquid_premiere_series = False  # 500 points | https://wallet.coinbase.com/summer/play?&challenge_id=6VRBNN6qr2algysZeorek8

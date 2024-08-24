@@ -46,6 +46,10 @@ async def process_key(private_key: str, proxy: str) -> None:
             await proxy.change_ip()
 
     pattern_tasks = []
+    if 'register' in patterns:
+        patterns.remove('register')
+        patterns.insert(0, 'register')
+
     for pattern in patterns:
         task = create_task(process_pattern(private_key, pattern, proxy))
         pattern_tasks.append(task)

@@ -1,6 +1,7 @@
 from src.utils.runner import *
 
 module_handlers = {
+    'register': process_register,
     'mister_miggles_nft': process_mister_miggles_mint,
     'celebrating_the_ethereum_etf': process_eth_etf_mint,
     'happy_birthday_toshi': process_toshi_mint,
