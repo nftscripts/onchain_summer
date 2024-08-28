@@ -1,7 +1,12 @@
+import random
+import secrets
 from asyncio import sleep
+from datetime import datetime
 
 import pyuseragents
+import pytz
 from aiohttp import ClientSession
+from eth_account.messages import encode_defunct
 from eth_typing import ChecksumAddress
 from web3.contract import Contract
 from web3.types import TxParams
@@ -112,3 +117,102 @@ async def create_mint_tx_with_request(self, contract: Contract, mint_address: st
     except ValueError as ex:
         if 'insufficient' in str(ex):
             logger.error(f'Nou enough money for mint | [{self.wallet_address}]')
+
+
+async def create_juicy_adventure_tx(self, contract: Contract) -> TxParams:
+    headers = {
+        'accept': 'text/plain',
+        'accept-language': 'ru,en;q=0.9,ru-RU;q=0.8,en-US;q=0.7',
+        'cache-control': 'no-cache',
+        'content-type': 'application/json',
+        'origin': 'https://gram.voyage',
+        'pragma': 'no-cache',
+        'priority': 'u=1, i',
+        'referer': 'https://gram.voyage/game/juicyadventure',
+        'sec-ch-ua': '"Chromium";v="128", "Not;A=Brand";v="24", "Google Chrome";v="128"',
+        'sec-ch-ua-mobile': '?0',
+        'sec-ch-ua-platform': '"Windows"',
+        'sec-fetch-dest': 'empty',
+        'sec-fetch-mode': 'cors',
+        'sec-fetch-site': 'same-origin',
+        'user-agent': pyuseragents.random(),
+    }
+
+    async def get_nonce(proxy: Proxy | None) -> str:
+        async with ClientSession(headers=headers) as session:
+            response = await session.get(
+                'https://gram.voyage/api/ocs/nonce',
+                proxy=proxy.proxy_url if proxy else None
+            )
+            response_json = await response.json()
+            nonce = response_json['data']['nonce']
+            return nonce
+
+    async def get_auth_token(nonce: str, proxy: Proxy | None) -> str:
+        signature, formatted_time = await get_signature(nonce)
+        json_data = {
+            'message': {
+                'domain': 'gram.voyage',
+                'address': self.wallet_address,
+                'statement': 'Sign in Grampus.',
+                'uri': 'https://gram.voyage',
+                'version': '1',
+                'chainId': 8453,
+                'nonce': nonce,
+                'issuedAt': formatted_time,
+            },
+            'signature': signature,
+        }
+        async with ClientSession(headers=headers) as session:
+            response = await session.post(
+                'https://gram.voyage/api/ocs/verify',
+                json=json_data,
+                proxy=proxy.proxy_url if proxy else None
+            )
+            response_json = await response.json()
+            token = response_json['data']['token']
+            return token
+
+    async def get_signature(nonce: str) -> tuple[str, str]:
+        now_utc = datetime.now(tz=pytz.utc)
+        formatted_time = now_utc.strftime('%Y-%m-%dT%H:%M:%S.%f')[:-3] + 'Z'
+        text = f'gram.voyage wants you to sign in with your Ethereum account:\n{self.wallet_address}\n\nSign in Grampus.\n\nURI: https://gram.voyage\nVersion: 1\nChain ID: 8453\nNonce: {nonce}\nIssued At: {formatted_time}'
+        signed_message = self.web3.eth.account.sign_message(encode_defunct(text=text),
+                                                            private_key=self.private_key)
+        signature = signed_message.signature.hex()
+        return signature, formatted_time
+
+    async def get_tx_signature(auth_token: str, proxy: Proxy | None) -> tuple[str, str, str]:
+        headers.update({'authorization': f'Bearer {auth_token}'})
+        json_data = {
+            'address': self.wallet_address,
+            'nonce': secrets.token_hex(8),
+            'order': random.sample([1, 2, 3, 4, 5], 3)
+        }
+        async with ClientSession(headers=headers) as session:
+            response = await session.post(
+                'https://gram.voyage/api/ocs/minting',
+                json=json_data,
+                proxy=proxy.proxy_url if proxy else None
+            )
+            response_json = await response.json()
+            token_id = response_json['data']['tokenId']
+            rarity = response_json['data']['rarity']
+            signature = response_json['data']['signature']
+            return token_id, rarity, signature
+
+    nonce = await get_nonce(self.proxy)
+    auth_token = await get_auth_token(nonce, self.proxy)
+    token_id, rarity, signature = await get_tx_signature(auth_token, self.proxy)
+
+    tx = await contract.functions.mintJuicyPack(
+        token_id,
+        rarity,
+        signature
+    ).build_transaction({
+        'value': 0,
+        'nonce': await self.web3.eth.get_transaction_count(self.wallet_address),
+        'from': self.wallet_address,
+        'gasPrice': await self.web3.eth.gas_price
+    })
+    return tx

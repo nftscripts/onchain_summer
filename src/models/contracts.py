@@ -100,3 +100,9 @@ class EthereumETFData:
 class IntroducingCoinbaseWalletWebAppData:
     address: str = '0x6B033e8199ce2E924813568B716378aA440F4C67'
     abi: str = open('./assets/abi/mint_fun.json', 'r').read()
+
+
+@dataclass
+class JuicyAdventureData:
+    address: str = '0x6ba5Ba71810c1196f20123B57B66C9ed2A5dBd76'
+    abi: str = open('./assets/abi/juicy_adventure.json', 'r').read()

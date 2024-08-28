@@ -11,6 +11,7 @@ from src.modules.nft.transactions import (
     create_mint_with_comment_tx,
     create_claim_tx,
     create_mint_tx_with_request,
+    create_juicy_adventure_tx
 )
 
 
@@ -172,4 +173,12 @@ IntroducingCoinbaseWalletWebApp = create_nft_class(
         115792089237316195423570985008687907853269984665640564039457584007913129639935,
         value=int(0.0001 * 10 ** 18)
     )
+)
+
+JuicyAdventure = create_nft_class(
+    class_name='JuicyAdventure',
+    contract_data=JuicyAdventureData,
+    name='Juicy Adventure',
+    challenge_ids=['ocsChallenge_3b1c2886-3168-45c7-b2cd-b590cde66c61'],
+    mint_tx_function=create_juicy_adventure_tx
 )
