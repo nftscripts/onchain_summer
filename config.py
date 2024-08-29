@@ -11,7 +11,8 @@ referral_code = None  # str | None
 
 mister_miggles_nft = False  # 1000 points | https://wallet.coinbase.com/summer/play?&challenge_id=ocsChallenge_d0778cee-ad0b-46b9-93d9-887b917b2a1f
 stix_launch_tournament_pass = False  # 1000 points | https://wallet.coinbase.com/nft/mint/stix?challengeId=ocsChallenge_bd5208b5-ff1e-4f5b-8522-c4d4ebb795b7
-juicy_adventure = True  # 1000 points | https://gram.voyage/game/juicyadventure#mint
+juicy_adventure = False  # 1000 points | https://gram.voyage/game/juicyadventure#mint
+forbes = False  # 1000 points | https://wallet.coinbase.com/nft/mint/forbesweb3?challengeId=ocsChallenge_b3f47fc6-3649-4bad-9e10-7244fbe1d484
 team_liquid_premiere_series = False  # 500 points | https://wallet.coinbase.com/summer/play?&challenge_id=6VRBNN6qr2algysZeorek8
 ethereum_etf = False  # 300 points | https://wallet.coinbase.com/nft/mint/eip155:8453:erc721:0xC00F7096357f09d9f5FE335CFD15065326229F66?challengeId=ocsChallenge_ee0cf23e-74a1-4bb3-badf-037a6bbf35e8
 celebrating_the_ethereum_etf = False  # 250 points | https://wallet.coinbase.com/summer/play?&challenge_id=5e383RWcRtGAwGUorkGiYC

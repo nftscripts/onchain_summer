@@ -182,3 +182,15 @@ JuicyAdventure = create_nft_class(
     challenge_ids=['ocsChallenge_3b1c2886-3168-45c7-b2cd-b590cde66c61'],
     mint_tx_function=create_juicy_adventure_tx
 )
+
+Forbes = create_nft_class(
+    class_name='Forbes',
+    contract_data=ForbesData,
+    name='Forbes Web3 INSPIRE',
+    challenge_ids=['ocsChallenge_b3f47fc6-3649-4bad-9e10-7244fbe1d484'],
+    mint_tx_function=lambda self, contract: create_claim_tx(
+        self,
+        contract,
+        115792089237316195423570985008687907853269984665640564039457584007913129639935
+    )
+)

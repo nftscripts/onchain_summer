@@ -25,6 +25,7 @@ module_handlers = {
     'spin_the_wheel': process_wheel,
     'the_world_after_eth_etf_approval': process_world_after_etf_approval_mint,
     'ETFEREUM': process_etfereum_mint,
+    'forbes': process_forbes_mint,
     'ethereum_etf': process_ethereum_etf_mint,
     'introducing_coinbase_wallet_web_app': process_coinbase_wallet_web_app_mint,
     'juicy_adventure': process_juicy_adventure_mint

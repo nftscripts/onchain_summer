@@ -106,3 +106,9 @@ class IntroducingCoinbaseWalletWebAppData:
 class JuicyAdventureData:
     address: str = '0x6ba5Ba71810c1196f20123B57B66C9ed2A5dBd76'
     abi: str = open('./assets/abi/juicy_adventure.json', 'r').read()
+
+
+@dataclass
+class ForbesData:
+    address: str = '0x0821D16eCb68FA7C623f0cD7c83C8D5Bd80bd822'
+    abi: str = open('./assets/abi/mint_fun.json', 'r').read()

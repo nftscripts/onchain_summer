@@ -21,7 +21,8 @@ from src.modules.nft.nft_factory import (
     ETFEREUM,
     HappyNouniversaryNFT,
     PoolTogetherNFT,
-    StixLaunchNFT
+    StixLaunchNFT,
+    Forbes
 )
 from src.modules.badges.badge_factory import (
     StandWithCryptoBadge,
@@ -70,6 +71,7 @@ process_happy_nouniversary_mint = create_process_function(HappyNouniversaryNFT)
 process_pool_together_mint = create_process_function(PoolTogetherNFT)
 process_stix_launch_mint = create_process_function(StixLaunchNFT)
 process_juicy_adventure_mint = create_process_function(JuicyAdventure)
+process_forbes_mint = create_process_function(Forbes)
 
 process_stand_with_crypto_badge = create_process_function(StandWithCryptoBadge, 'claim_badge')
 process_coinbase_one_badge = create_process_function(CoinbaseOneBadge, 'claim_badge')
